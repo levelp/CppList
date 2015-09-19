@@ -5,7 +5,7 @@ using namespace std;
 // Стек, реализованный через
 // динамический список
 class Stack {
-  class Element {
+  struct Element {
     int value; // Значение
     Element* next = NULL; // Следующий элемент
   };
