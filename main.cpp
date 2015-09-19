@@ -4,15 +4,17 @@ using namespace std;
 
 // Стек, реализованный через
 // динамический список
+template <class T> // T - тип элементов в стеке
+// template <class T = int> - тип по-умолчанию
 class Stack {
   struct Element {
-    int value; // Значение
+    T value; // Значение
     Element* next = NULL; // Следующий элемент
   };
   Element* top = NULL; // Вершина стека
  public:
   // Положить значение на вершину стека
-  void push(int v) {
+  void push(T v) {
     // Заводим новый элемент в динамической памяти
     Element* n = new Element;
     // Присваиваем новому элементу значение
@@ -23,7 +25,7 @@ class Stack {
     top = n; // Новый ставим первым
   }
   // Получить значение с вершины стека
-  int pop() {
+  T pop() {
     if(top == NULL) {
       cout << "Stack is empty!" << endl;
       throw "Stack is empty!";
@@ -32,7 +34,7 @@ class Stack {
     // 1. Запоминаем верхний элемент
     Element* d = top;
     // 2. Запоминаем значение вершины
-    int value = d->value;
+    T value = d->value;
     // 3. Передвигаем указатель на следующий элемент
     top = top->next;
     // 4. Удаляем верхний элемент
@@ -44,7 +46,7 @@ class Stack {
 
 int main() {
   // Пример использования стека
-  Stack s; // Объявление переменной s
+  Stack<int> s; // Объявление переменной s
   // Сначала стек пустой
   // Добавляем элемент на вершину стека
   s.push(2);
@@ -70,6 +72,12 @@ int main() {
 
   for(int i = 1; i <= 3; ++i)
     cout << s.pop() << endl;
+
+  Stack<string> s2;
+  s2.push("Hello");
+  s2.push("world!");
+  cout << s2.pop() << endl;
+  cout << s2.pop() << endl;
 
   return 0;
 }
