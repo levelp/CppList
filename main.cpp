@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Queue.h" // Подключаем очередь
 
 using namespace std;
 
@@ -78,6 +79,13 @@ int main() {
   s2.push("world!");
   cout << s2.pop() << endl;
   cout << s2.pop() << endl;
+
+  // Тестирование очереди
+  Queue<string> q;
+  s2.push("Hello");
+  s2.push("world!");
+  cout << q.get() << endl;
+  cout << q.get() << endl;
 
   return 0;
 }
