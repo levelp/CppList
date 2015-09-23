@@ -82,8 +82,8 @@ int main() {
 
   // Тестирование очереди
   Queue<string> q;
-  s2.push("Hello");
-  s2.push("world!");
+  q.put("Hello");
+  q.put("world!");
   cout << q.get() << endl;
   cout << q.get() << endl;
 

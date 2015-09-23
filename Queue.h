@@ -15,6 +15,7 @@ class Queue {
   Element* head,// Начало очереди
            *tail; // Конец (хвост) очереди
  public:
+  // Конструктор
   Queue() : head(NULL), tail(NULL) {}
   // Добавить в конец очереди
   void put(T v) {
