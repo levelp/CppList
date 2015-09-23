@@ -19,7 +19,16 @@ class Queue {
   Queue() : head(NULL), tail(NULL) {}
   // Добавить в конец очереди
   void put(T v) {
-    // TODO: реализовать
+    Element* e = new Element; // Создаём новый элемент
+    e->value = v; // Присваиваем значение
+
+    // Добавляем элемент в конец очереди
+    if(tail == NULL) // Если очередь пуста
+      head = e; // Встаём в начало очереди
+    else // Если не пуста
+      tail->next = e; // Встаём за последним
+
+    tail = e; // Теперь мы в конце очереди
   }
   // Получить из начала очереди
   T get() {
@@ -28,9 +37,15 @@ class Queue {
       throw "Queue is empty!";
     }
 
-    T value;
-    // 5. Возвращаем значение
-    return value;
+    T value = head->value; // Элемент из начала очереди
+    Element* e = head; // Сохраняем для удаления
+    head = head->next; // Начало сдвигаем на следующий
+
+    if(head == NULL) // Если это был последний
+      tail = NULL;
+
+    delete e; // Удаляем элемент
+    return value; // Возвращаем значение
   }
 };
 
